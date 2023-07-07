@@ -1,3 +1,5 @@
+local npcHandles = {}
+
 function CreateNPCs()
 
     -- loop through npcs to spawn all of them    
@@ -36,6 +38,8 @@ function CreateNPCs()
         FreezeEntityPosition(npcPed, true) -- cant escape
         SetBlockingOfNonTemporaryEvents(npcPed, true) -- cant be scared
 
+        npcHandles[npcName] = npcPed
+
         if Config.debug then
             print('NPC ' .. npcName .. ' spawned.')
         end
@@ -43,5 +47,28 @@ function CreateNPCs()
     end
 
 end
+
+-- remove npcs
+function RemoveNPCs()
+        
+    for npcName, npcPed in pairs(npcHandles) do
+        DeletePed(npcPed)
+        if Config.debug then
+            print('NPC ' .. npcName .. ' removed.')
+        end
+    end
+    
+end
+
+-- check if resource is stopped and remove npcs
+AddEventHandler('onResourceStop', function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        if Config.debug then
+            print('Stopping script...')
+            print('Removing NPCs...')
+        end
+        RemoveNPCs()
+    end
+end)
 
 CreateNPCs()

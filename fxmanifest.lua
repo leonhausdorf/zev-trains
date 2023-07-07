@@ -5,14 +5,12 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 author 'Zevyx'
 description 'Control trains like you want'
 
-shared_scripts {
-    'config.lua'
-}
-
 client_scripts {
+    'config.lua',
     'client/*.lua'
 }
 
 server_scripts {
+    'config.lua',
     'server/*.lua'
 }

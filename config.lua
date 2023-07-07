@@ -4,7 +4,7 @@ Config = { }
 Config.debug = true
 
 Config.keys = {
-    InteractNPC = 0x760A9C6F, -- G 
+    G = 0x760A9C6F, -- G 
 }
 
 -- set the locations and models of the NPCs
@@ -22,4 +22,28 @@ Config.npcs = {
         model = 'S_M_M_TrainStationWorker_01'
     },
 
+}
+
+-- set the trains that can be spawned
+-- WARNING: only change the hashes if you know what you are doing!
+Config.trains = {
+    -1464742217,
+    -577630801,
+    -1901305252,
+    -1719006020,
+    519580241,
+    1495948496,
+    1365127661,
+    -1083616881,
+    1030903581,
+    -2006657222,
+    1285344034,
+    -156591884,
+    987516329,
+    -1740474560,
+    -651487570,
+    -593637311,
+    1094934838,
+    1054492269,
+    1216031719,
 }
